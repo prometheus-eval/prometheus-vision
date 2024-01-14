@@ -58,7 +58,11 @@ Also, we use the following output format. During inference, you could parse the 
 ```
 You can check the [Perception Collection](https://huggingface.co/datasets/kaist-ai/Perception-Collection) used for training Prometheus-Vision.
 ## Train
-We use [LLaVA](https://github.com/haotian-liu/LLaVA) codebase in developing Prometheus-Vision. Therefore, the following training & inference script is tailored to this. If you plan to start from a different VLM codebase, you should adapt the format of the data to suit your custom code. Note that you can also check the data format at sample_train_data.json and sample_eval_data.json
+We use [LLaVA](https://github.com/haotian-liu/LLaVA) codebase in developing Prometheus-Vision. Therefore, the following training & inference script is tailored to this. <br>
+
+If you plan to start from a different VLM codebase, you should adapt the format of the data to suit your custom code. <br>
+
+Note that you can also check the data format at sample_train_data.json and sample_eval_data.json
 ```bash
 cd LLaVA
 deepspeed --include llava/train/train_mem.py \
