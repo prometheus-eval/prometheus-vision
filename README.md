@@ -1,23 +1,17 @@
 # Prometheus-Vision
 An Evaluator VLM that is open-source, offers reproducible evaluation, and inexpensive to use. Specifically designed for fine-grained evaluation on customized score rubric, Prometheus-Vision is a good alternative for human evaluation and GPT-4V evaluation.
 ## Setup
-1. Clone this repository and navigate to LLaVA folder
+1. Install package
 ```bash
-git clone https://github.com/haotian-liu/LLaVA.git
-cd LLaVA
-```
-2. Install package
-```bash
-conda create -n llava python=3.10 -y
-conda activate llava
+conda create -n prometheus-vision python=3.10 -y
+conda activate prometheus-vision
 pip install --upgrade pip  # enable PEP 660 support
 pip install -e .
 pip install -e ".[train]"
 pip install flash-attn --no-build-isolation
 ```
-3. Download the data
+2. Download data
 ```
-cd ../
 python mmmu_donwload.py
 wget http://images.cocodataset.org/zips/train2017.zip
 unzip train2017
@@ -64,7 +58,6 @@ If you plan to start from a different VLM codebase, you should adapt the format 
 
 Note that you can also check the data format at [sample_train_data.json](https://github.com/kaistAI/prometheus-vision/blob/main/sample_train_data.json) and [sample_eval_data.json](https://github.com/kaistAI/prometheus-vision/blob/main/sample_train_data.json)
 ```bash
-cd LLaVA
 deepspeed --include llava/train/train_mem.py \
     --deepspeed ./scripts/zero2.json \
     --model_name_or_path lmsys/vicuna-13b-v1.5 \
@@ -101,7 +94,6 @@ deepspeed --include llava/train/train_mem.py \
 ## Inference
 You can place the path of your llava-style model in MODEL_PATH, or insert the trained [Prometheus-Vision](https://huggingface.co/kaist-ai/prometheus-vision-13b-v1.0) we provide.
 ```bash
-cd LLaVA
 python -m llava.eval.model_vqa \
     --model-path MODEL_PATH \
     --question-file EVALUATION_DATA_PATH \
