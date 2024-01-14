@@ -62,7 +62,7 @@ We use [LLaVA](https://github.com/haotian-liu/LLaVA) codebase in developing Prom
 
 If you plan to start from a different VLM codebase, you should adapt the format of the data to suit your custom code. <br>
 
-Note that you can also check the data format at sample_train_data.json and sample_eval_data.json
+Note that you can also check the data format at [sample_train_data.json](https://github.com/kaistAI/prometheus-vision/blob/main/sample_train_data.json) and [sample_eval_data.json](https://github.com/kaistAI/prometheus-vision/blob/main/sample_train_data.json)
 ```bash
 cd LLaVA
 deepspeed --include llava/train/train_mem.py \
