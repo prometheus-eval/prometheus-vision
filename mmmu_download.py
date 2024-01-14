@@ -1,5 +1,6 @@
 from datasets import load_dataset
 from tqdm import tqdm
+import os
 
 cate = ['Accounting', 'Agriculture', 'Architecture_and_Engineering', 'Art', 'Art_Theory', 'Basic_Medical_Science', 'Biology', 'Chemistry', 'Clinical_Medicine', 'Computer_Science', 'Design', 'Diagnostics_and_Laboratory_Medicine', 'Economics', 'Electronics', 'Energy_and_Power', 'Finance', 'Geography', 'History', 'Literature', 'Manage', 'Marketing', 'Materials', 'Math', 'Mechanical_Engineering', 'Music', 'Pharmacy', 'Physics', 'Psychology', 'Public_Health', 'Sociology']
 temp = {
@@ -36,7 +37,9 @@ temp = {
 
 }
 ids = 0
-save_dir = "./LLaVA/mmmu"
+save_dir = "./mmmu"
+if not os.path.exists(save_dir):
+    os.makedirs(save_dir)
 pattern = r"\['(.*?)'\]"
 for c in tqdm(cate):
     dataset = load_dataset("MMMU/MMMU", c)
