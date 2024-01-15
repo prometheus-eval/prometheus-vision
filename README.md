@@ -108,7 +108,7 @@ Additionally, you can use [Perception-Bench](https://huggingface.co/datasets/kai
 If you find our work useful in your work, please consider citing our paper:
 
 ```
-@misc{lee2024prometheus,
+@misc{lee2024prometheusvision,
       title={Prometheus-Vision: Vision-Language Model as a Judge for Fine-Grained Evaluation}, 
       author={Seongyun Lee and Seungone Kim and Sue Hyun Park and Geewook Kim and Minjoon Seo},
       year={2024},
