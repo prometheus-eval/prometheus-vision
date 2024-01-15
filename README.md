@@ -45,11 +45,6 @@ Score 5: {orig_score5_description}
 
 ###Feedback:
 ```
-Also, we use the following output format. During inference, you could parse the score by splitting the number that is generated next to the [RESULT] phrase.
-```text
-{orig_feedback}
-[RESULT] {orig_score}
-```
 You can check the [Perception Collection](https://huggingface.co/datasets/kaist-ai/Perception-Collection) used for training Prometheus-Vision.
 ## Train
 We use [LLaVA](https://github.com/haotian-liu/LLaVA) codebase in developing Prometheus-Vision. Therefore, the following training & inference script is tailored to this. <br>
