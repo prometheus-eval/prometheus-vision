@@ -2,13 +2,15 @@
 layout: default
 ---
 
-We introduce <span class="sys-name">Prometheus-Vision</span>, an evaluator Vision-Language Model (VLM) that 1) is **open-source**, 2) offers **reproducible** evaluation, and 3) is **inexpensive** to use. We construct <span class="sys-name">Perception-Collection</span>, the first multimodal feedback dataset for training an evaluator VLM, which includes 15K **fine-grained scoring criteria** defined for each instance. <span class="sys-name">Prometheus-Vision</span> trained on <span class="sys-name">Perception-Collection</span> shows high correlation with human evaluators and GPT-4V, paving the way for accesible and transparent evaluation of VLMs.
+We introduce <span class="sys-name">Prometheus-Vision</span>, an evaluator Vision-Language Model (VLM) that is **open-source**, offers **reproducible** evaluation, and is **inexpensive** to use. We construct <span class="sys-name">Perception-Collection</span>, the first multimodal feedback dataset for training an evaluator VLM, which includes 15K **fine-grained scoring criteria** defined for each instance. <span class="sys-name">Prometheus-Vision</span> trained on <span class="sys-name">Perception-Collection</span> shows high correlation with human evaluators and GPT-4V, paving the way for accessible and transparent evaluation of VLMs.
+
+------
 
 <br/>
 
 ## VLM-as-a-Judge for Fine-Grained Evaluation
 
-Recent VLMs exhibit impressive visual instruction-following capabilities. To assess and compare the quality of VLM-generated outputs, we utilize VLMs as evaluator of VLMs, naming the approach as VLM-as-a-Judge. 
+Recent VLMs exhibit impressive visual instruction-following capabilities. To assess and compare the quality of VLM-generated outputs, we utilize VLMs as evaluator of VLMs, naming the approach as 'VLM-as-a-Judge'. 
 
 {: .sys-img}
 ![vlm_as_a_judge](/assets/img/vlm_as_a_judge.svg)  
@@ -22,23 +24,17 @@ An evaluator VLM can adhere to specific criteria of interest to focus on nuanced
 
 ## Multimodal Feedback Data
 
-The <span class="sys-name">[Perception-Collection](https://huggingface.co/datasets/kaist-ai/Perception-Collection)</span> dataset is targeted for fine-grained multimodal feedback generation. Each instance consists of 5 input components: an instruction, a real-world image, a response to evaluate, a customized score rubric, and a reference answer. Based on this, an evaluator VLM is trained to generate a language feedback and a score decision.
+The <span class="sys-name">[Perception-Collection](https://huggingface.co/datasets/kaist-ai/Perception-Collection)</span> dataset is targeted for fine-grained multimodal feedback generation. Each instance consists of 5 input components: an instruction, a real-world image, a response to evaluate, a customized score rubric, and a reference answer. Based on this, an evaluator VLM is trained to generate a language feedback and a score decision on a scale of 1 to 5.
 
 {: .sys-img}
 ![perception_collection](/assets/img/prometheus_vision_components.svg)  
 
-We collect 5K real-world images sampled from the [COCO dataset](https://cocodataset.org/#home) and the [MMMU benchmark](https://arxiv.org/abs/2311.16502). Then, we augment the data manually and using GPT-4V through 4 stages:
+We collect 5K real-world images sampled from the [COCO dataset](https://cocodataset.org/#home) and the [MMMU benchmark](https://arxiv.org/abs/2311.16502). Then, we augment the data in a 4-stage process: (1) hand-craft 50 seed score rubrics, (2) brainstorm and refine 15K fine-grained score rubrics, (3) augment 30K instructions and reference answers related to the score rubric, and (4) augment 150K responses and language feedback for training. From stage 2 to 4, we prompt GPT-4V to generate the data. We ensure that the generated score rubric aligns with the image and that there is no length bias in responses across the score range.
 
-{: .text-left}
-1. Hand-craft 50 seed score rubrics
-2. Brainstorm and refine 15K fine-grained score rubrics
-3. Augment 30K instructions and reference answers related to the score rubric
-4. Augment 150K responses and language feedback for training 
-
-{: .img-right}
+{: .sys-img}
 ![perception_collection_stats](/assets/img/perception_collection_stats.png)  
 
-We also release a held-out test set of the <span class="sys-name">Perception-Collection</span> called <span class="sys-name">[Perception-Bench](https://huggingface.co/datasets/kaist-ai/Perception-Bench)</span>.
+We also release a held-out test set of the <span class="sys-name">Perception-Collection</span> called <span class="sys-name">[Perception-Bench](https://huggingface.co/datasets/kaist-ai/Perception-Bench)</span>, which contains 500 instances and a single score rubric for each instance.
 
 <br/>
 
@@ -46,11 +42,10 @@ We also release a held-out test set of the <span class="sys-name">Perception-Col
 
 Using the <span class="sys-name">Perception-Collection</span>, we use [LLaVA-1.5](https://arxiv.org/abs/2310.03744) (7B & 13B) as our backbone model and train <span class="sys-name">Prometheus-Vision</span> ([7B](https://huggingface.co/kaist-ai/prometheus-vision-7b-v1.0) & [13B](https://huggingface.co/kaist-ai/prometheus-vision-13b-v1.0)). Through experiments, we demonstrate that <span class="sys-name">Prometheus-Vision</span> can be an effective open-source alternative to using human or GPT-4V for VLM evaluation.
 
-<br/>
 
 ### Simulating Human Evaluators
 
-<span class="sys-name">Prometheus-Vision</span> shows high correlation with human evaluators on instances with real-world images. Also, <span class="sys-name">Prometheus-Vision</span> 13B's feedback is as good as or better than GPT-4V's feedback 57.78% of the time.
+<span class="sys-name">Prometheus-Vision</span> shows high correlation with human evaluators on instances with real-world images——LLaVA-Bench and <span class="sys-name">Perception-Bench</span>). Also, <span class="sys-name">Prometheus-Vision</span> 13B's feedback is as good as or better than GPT-4V's feedback 57.78% of the time.
 
 {: .img-left}
 ![human_corr](/assets/img/human_corr.svg)
@@ -58,7 +53,6 @@ Using the <span class="sys-name">Perception-Collection</span>, we use [LLaVA-1.5
 {: .img-right}
 ![pairwise_win_rate](/assets/img/pairwise_win_rate.svg)
 
-<br/>
 
 ### Simulating GPT-4V
 
