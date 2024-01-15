@@ -21,7 +21,6 @@ An evaluator VLM can adhere to specific criteria of interest to focus on nuanced
 
 <br/>
 
-
 ## Multimodal Feedback Data
 
 The <span class="sys-name">[Perception-Collection](https://huggingface.co/datasets/kaist-ai/Perception-Collection)</span> dataset is targeted for fine-grained multimodal feedback generation. Each instance consists of 5 input components: an instruction, a real-world image, a response to evaluate, a customized score rubric, and a reference answer. Based on this, an evaluator VLM is trained to generate a language feedback and a score decision on a scale of 1 to 5.
@@ -29,7 +28,7 @@ The <span class="sys-name">[Perception-Collection](https://huggingface.co/datase
 {: .sys-img}
 ![perception_collection](/assets/img/prometheus_vision_components.svg)  
 
-We collect 5K real-world images sampled from the [COCO dataset](https://cocodataset.org/#home) and the [MMMU benchmark](https://arxiv.org/abs/2311.16502). Then, we augment the data in a 4-stage process: (1) hand-craft 50 seed score rubrics, (2) brainstorm and refine 15K fine-grained score rubrics, (3) augment 30K instructions and reference answers related to the score rubric, and (4) augment 150K responses and language feedback for training. From stage 2 to 4, we prompt GPT-4V to generate the data. We ensure that the generated score rubric aligns with the image and that there is no length bias in responses across the score range.
+We collect 5K real-world images sampled from the [COCO dataset](https://cocodataset.org/#home) and the [MMMU benchmark](https://arxiv.org/abs/2311.16502). Then, we augment the data in a 4-stage process: (1) hand-craft 50 seed score rubrics, (2) brainstorm and refine 15K fine-grained score rubrics, (3) augment 30K instructions and reference answers related to the score rubric, and (4) augment 150K responses and language feedback for training. From stage 2 to 4, we prompt GPT-4V to generate the data. We ensure that each generated score rubric aligns with the image and that there is no length bias in responses across the score range.
 
 {: .sys-img}
 ![perception_collection_stats](/assets/img/perception_collection_stats.png)  
@@ -45,7 +44,7 @@ Using the <span class="sys-name">Perception-Collection</span>, we use [LLaVA-1.5
 
 ### Simulating Human Evaluators
 
-<span class="sys-name">Prometheus-Vision</span> shows high correlation with human evaluators on instances with real-world images——LLaVA-Bench and <span class="sys-name">Perception-Bench</span>). Also, <span class="sys-name">Prometheus-Vision</span> 13B's feedback is as good as or better than GPT-4V's feedback 57.78% of the time.
+<span class="sys-name">Prometheus-Vision</span> shows high correlation with human evaluators on instances with real-world images, LLaVA-Bench and <span class="sys-name">Perception-Bench</span>. Also, <span class="sys-name">Prometheus-Vision</span> 13B's feedback is as good as or better than GPT-4V's feedback 57.78% of the time.
 
 {: .img-left}
 ![human_corr](/assets/img/human_corr.svg)
@@ -56,7 +55,7 @@ Using the <span class="sys-name">Perception-Collection</span>, we use [LLaVA-1.5
 
 ### Simulating GPT-4V
 
-<span class="sys-name">Prometheus-Vision</span> demonstrates the highest correlation with GPT-4V among open-source VLMs and outperforms GPT-3.5-Turbo and GPT-4 (LM-as-a-Judge) in LLaVA-Bench and <span class="sys-name">Perception-Bench</span>. 
+<span class="sys-name">Prometheus-Vision</span> shows the highest correlation with GPT-4V among open-source VLMs and outperforms GPT-3.5-Turbo and GPT-4 ('LM-as-a-Judge') in LLaVA-Bench and <span class="sys-name">Perception-Bench</span>. 
 
 {: .sys-img}
 ![instructionfollowing_results](/assets/img/instructionfollowing_results.png)
