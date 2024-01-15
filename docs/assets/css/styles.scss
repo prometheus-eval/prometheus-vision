@@ -195,7 +195,7 @@ pre {
   color: #fff;
   fill: #fff;
   font-size: 16px;
-  width: 80px;
+  // width: 80px;
   cursor: pointer;
 
   &:visited {
@@ -240,7 +240,7 @@ pre {
 
 .sys-name {
   font-variant: small-caps;
-  font-weight: bold;
+  // font-weight: bold;
   color: {{site.syscolor}};
 }
 
