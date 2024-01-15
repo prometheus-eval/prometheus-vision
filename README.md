@@ -1,5 +1,10 @@
 # Prometheus-Vision
 An Evaluator VLM that is open-source, offers reproducible evaluation, and inexpensive to use. Specifically designed for fine-grained evaluation on customized score rubric, Prometheus-Vision is a good alternative for human evaluation and GPT-4V evaluation.
+
+Our preprint, which describes our method in detail and provides full experimental results and analyses, can be found here:<br>
+> [**Prometheus-Vision: Vision-Language Model as a Judge for Fine-Grained Evaluation**](https://arxiv.org/abs/2401.06591).<br>
+> [Seongyun Lee](https://www.linkedin.com/in/seongyun-lee-647753233/)$^\ast$, [Seungone Kim](https://seungonekim.github.io/)$^\ast$, [Sue Hyun Park](https://www.linkedin.com/in/sue-hyun-park-2682ba1a0/), [Geewook Kim](https://geewook.kim/), [Minjoon Seo](https://seominjoon.github.io/). Work in progress, arXiv preprint.
+
 ## Setup
 1. Install package
 ```bash
@@ -98,3 +103,17 @@ python -m llava.eval.model_vqa \
     --conv-mode vicuna_v1
 ```
 Additionally, you can use [Perception-Bench](https://huggingface.co/datasets/kaist-ai/Perception-Bench) when evaluating VLM.
+
+## Citation
+If you find our work useful in your work, please consider citing our paper:
+
+```
+@misc{lee2024prometheus,
+      title={Prometheus-Vision: Vision-Language Model as a Judge for Fine-Grained Evaluation}, 
+      author={Seongyun Lee and Seungone Kim and Sue Hyun Park and Geewook Kim and Minjoon Seo},
+      year={2024},
+      eprint={2401.06591},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
+```
