@@ -3,7 +3,7 @@ An Evaluator VLM that is open-source, offers reproducible evaluation, and inexpe
 
 Our preprint, which describes our method in detail and provides full experimental results and analyses, can be found here:<br>
 > [**Prometheus-Vision: Vision-Language Model as a Judge for Fine-Grained Evaluation**](https://arxiv.org/abs/2401.06591).<br>
-> [Seongyun Lee](https://www.linkedin.com/in/seongyun-lee-647753233/)$^\ast$, [Seungone Kim](https://seungonekim.github.io/)$^\ast$, [Sue Hyun Park](https://www.linkedin.com/in/sue-hyun-park-2682ba1a0/), [Geewook Kim](https://geewook.kim/), [Minjoon Seo](https://seominjoon.github.io/). Work in progress, arXiv preprint.
+> [Seongyun Lee](https://www.linkedin.com/in/seongyun-lee-647753233/)$^\ast$, [Seungone Kim](https://seungonekim.github.io/)$^\ast$, [Sue Hyun Park](https://suehyunpark.github.io/), [Geewook Kim](https://geewook.kim/), [Minjoon Seo](https://seominjoon.github.io/). Work in progress, arXiv preprint.
 
 ## Setup
 1. Install package
