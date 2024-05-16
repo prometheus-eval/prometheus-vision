@@ -1,5 +1,5 @@
 # Prometheus-Vision
-[ICLR 2024 WS] An Evaluator VLM that is open-source, offers reproducible evaluation, and inexpensive to use. Specifically designed for fine-grained evaluation on customized score rubric, Prometheus-Vision is a good alternative for human evaluation and GPT-4V evaluation.
+[ACL 2024 Findings & ICLR 2024 WS] An Evaluator VLM that is open-source, offers reproducible evaluation, and inexpensive to use. Specifically designed for fine-grained evaluation on customized score rubric, Prometheus-Vision is a good alternative for human evaluation and GPT-4V evaluation.
 
 Our preprint, which describes our method in detail and provides full experimental results and analyses, can be found here:<br>
 > [**Prometheus-Vision: Vision-Language Model as a Judge for Fine-Grained Evaluation**](https://arxiv.org/abs/2401.06591).<br>
